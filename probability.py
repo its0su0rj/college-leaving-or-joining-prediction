@@ -6,8 +6,8 @@ from sklearn.neighbors import KNeighborsRegressor
 import joblib
 
 # Load the trained k-NN model
-#model = joblib.load('admission_probability_model.joblib')
-model = joblib.load("C:/Users/sujee/Downloads/admission_probability_model.joblib")
+model = joblib.load('admission_probability_model.joblib')
+#model = joblib.load("C:/Users/sujee/Downloads/admission_probability_model.joblib")
 
 
 # Streamlit UI
