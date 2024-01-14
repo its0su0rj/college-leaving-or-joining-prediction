@@ -42,13 +42,13 @@ new_data = {
 input_df = pd.DataFrame(new_data)
 
 # Standardize the features using the same scaler used during training
+
 scaler = StandardScaler()
 new_data_scaled = scaler.fit_transform(input_df)
 
 # Button to trigger prediction
 if st.button("Percentage Probability to Join the College"):
     # Make predictions using the trained model
+    st.write(f"Input Features (scaled): {new_data_scaled}")
     predicted_admission_probability = model.predict(new_data_scaled)
-
-    # Display the predicted admission probability
-    st.success(f'Predicted Admission Probability: {predicted_admission_probability[0]}%')
+    st.write(f'Predicted Admission Probability: {predicted_admission_probability[0]}%')
