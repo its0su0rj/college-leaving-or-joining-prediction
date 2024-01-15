@@ -1,14 +1,11 @@
-
 import streamlit as st
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import KNeighborsRegressor
 import joblib
 
-# Load the trained k-NN model
+# Load the trained k-NN model and scaler
 model = joblib.load('admission_probability_model.joblib')
-#model = joblib.load("C:/Users/sujee/Downloads/admission_probability_model.joblib")
-
+scaler = joblib.load('scaler.joblib')
 
 # Streamlit UI
 st.title("College Admission Probability Prediction")
@@ -42,9 +39,7 @@ new_data = {
 input_df = pd.DataFrame(new_data)
 
 # Standardize the features using the same scaler used during training
-
-scaler = StandardScaler()
-new_data_scaled = scaler.fit_transform(input_df)
+new_data_scaled = scaler.transform(input_df)
 
 # Button to trigger prediction
 if st.button("Percentage Probability to Join the College"):
